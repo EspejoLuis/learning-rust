@@ -8,3 +8,7 @@
         - [Argus](https://github.com/cognitive-engineering-lab/argus). Can be useful I think, to try. IDE plugin.
   3. *A Program Slicer*:
         - [Flowistry](https://github.com/willcrichton/flowistry). IDE pluging that highlights part of the code that impacts/are impacted by the variable you are pointing at.
+
+- Checking some website:
+  - [getcracked.io](https://getcracked.io/questions). Seems good (also for Python/C++)
+  - This guy is good!
