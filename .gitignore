@@ -1,0 +1,18 @@
+# -------------------------------
+# Rust Build Artifacts
+# -------------------------------
+
+# Compiled Rust output and intermediate artifacts
+**/*.rs.bk
+
+# -------------------------------
+# Editor & Temp Files (Common)
+# -------------------------------
+
+# Log and temp files that shouldn’t be versioned
+*.log
+*.tmp
+
+
+# General Settings
+.vscode/
