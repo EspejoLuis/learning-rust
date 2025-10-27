@@ -58,6 +58,10 @@
 
 - Starting reading [The Rust Programming Language](https://rust-book.cs.brown.edu/) very fast and mindmapping it as well (just main chapters). Reached chapter 13.
 
+## ☀️ 27th October - Monday
+
+- Fast reas till chapter 20. Just two left.
+
 ## 📚 To Do
 
 - [ ] Read book twice.
