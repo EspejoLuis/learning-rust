@@ -60,7 +60,7 @@
 
 ## ☀️ 27th October - Monday
 
-- Fast reas till chapter 20. Just two left.
+- Fast read till chapter 20. Just two left.
 
 ## 📚 To Do
 
