@@ -62,9 +62,39 @@
 
 - Fast read till chapter 20. Just two left.
 
+## ☀️ 28th October - Tuesday
+
+### Chapter 1 - Getting Started
+
+- Macros can be recognized because they have `!` at the end of the name. For example `println!`.
+
+- To compile use `rustc main.rs`. This will create the executable `main`. Note: anyone can run the main. Theoretically that file can be given to someone who does not have Rust intalled `main` it will run anyway.
+
+- To create a project with cargo (i.e. Rust's building system and package manager) type in terminal: `cargo new hello_cargo`. This will crate a folder named `hello_cargo` with `src` folder in it and `main.rs` in it. Moreover, it will create the *Cargo.toml* file.
+
+- `cargo init` creates the *Cargo.toml*.
+
+### Note
+
+- **Compiled languages**: the program is translated entirely into machine code before it runs.
+  1. Write source code
+  2. A *compiler* translates it into a standalone executable (binary).
+  3. When you run that binary, the CPU executes the machine instructions directly.
+
+- **Interpreted languages**: the program is translated and executed line-by-line at runtime by another program called an interpreter.
+  1. Write source code
+  2. The *interpreter* reads the code and executes it directly, translating it as it goes.
+
+- Python is an hybrid example: the source code is translate into .pyc (bytecode files) and then interpreted by the Python Virtual Machine.
+
+## Start From
+
+[Left here](https://rust-book.cs.brown.edu/ch01-03-hello-cargo.html#:~:text=Building%20and%20Running%20a%20Cargo%20Project)
+
 ## 📚 To Do
 
-- [ ] Read book twice.
+- [X] Read book - Fast.
+- [ ] Read Book Second Time.
 - [ ] Start using Rustling.
 - [ ] Acquascope for ownership concept/stack/heap.
 - [ ] Rust by example.
@@ -74,4 +104,4 @@
   - [ ] Memory allocation and deallocation
   - [ ] Manual memory management vs garbage collector
   - [ ] Concurrency, parallelism and multithreading
-  - [ ] Compiled vs interpreted languages
+  - [X] Compiled vs interpreted languages
