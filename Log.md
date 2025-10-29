@@ -64,7 +64,7 @@
 
 ## ☀️ 28th October - Tuesday
 
-### Chapter 1 - Getting Started
+### Chapter 1 - Getting Started - Part 1
 
 - Macros can be recognized because they have `!` at the end of the name. For example `println!`.
 
@@ -87,17 +87,49 @@
 
 - Python is an hybrid example: the source code is translate into .pyc (bytecode files) and then interpreted by the Python Virtual Machine.
 
+## ☀️ 29th October - Wednesday
+
+### Chapter 1 - Getting Started - Part 2
+
+- After having created the hello_cargo folder, in terminal `cargo build` will create:
+  - `target` folder. By default, building is considered for debug purposes, so a `debug` folder is created and within it, a the hello_cargo **executable** is created as well. To run it `./target/debug/hello_cargo`
+  
+  ```bash
+  Apples-MacBook-Pro:hello_cargo apple$ cargo build
+    Compiling hello_cargo v0.1.0 (/Users/apple/github_repos/learning-rust/projects/hello_cargo)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.02s
+  ```
+
+  - `Cargo.lock`: this file keeps track the *version* of all dependencies. Do not modify ever, cargo will always take care of that.
+
+- `cargo run` compiles and run at the same time in one command.
+
+  ```bash
+  Apples-MacBook-Pro:hello_cargo apple$ cargo run
+   Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.05s
+   Running `target/debug/hello_cargo`
+   Hello, world!
+  ```
+
+- `cargo check` checks if the code compiles but no executable is produced. Producing an executable might take time, so `cargo check` makes easier to understand if the code is still working without spending time in creating the executable.
+
+- To build not in debug mode, `cargo build --release`. This will create an **executable** within `release` folder. The release build is optimized so it can take longer than the debug version to compile.
+
+- Committed rustlings repo and did first exercise.
+
 ## Start From
 
-[Left here](https://rust-book.cs.brown.edu/ch01-03-hello-cargo.html#:~:text=Building%20and%20Running%20a%20Cargo%20Project)
+[Left here](https://rust-book.cs.brown.edu/ch02-00-guessing-game-tutorial.html#:~:text=Rust%20Programming%20Language-,Programming%20a%20Guessing%20Game,-Let%E2%80%99s%20jump%20intohttps://rust-book.cs.brown.edu/ch01-03-hello-cargo.html#:~:text=Building%20and%20Running%20a%20Cargo%20Project)
 
 ## 📚 To Do
 
 - [X] Read book - Fast.
 - [ ] Read Book Second Time.
-- [ ] Start using Rustling.
-- [ ] Acquascope for ownership concept/stack/heap.
+- [ ] Check Videos!
+- [ ] Rustling.
 - [ ] Rust by example.
+- [ ] Acquascope for ownership concept/stack/heap.
+- [ ] Check Comprehensive Rust
 - [ ] Refresh topics:
 
   - [ ] Heap, stack and dynamic memory
