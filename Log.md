@@ -117,6 +117,10 @@
 
 - Committed rustlings repo and did first exercise.
 
+## ☀️ 31th October - Friday
+
+- 🎥 Interesting video about how Rust it's differnt from C++/Java: [How rust forces you to respect memory](https://www.youtube.com/watch?v=mlf7QYhXkdc). Very simple, yet effective.
+
 ## Start From
 
 [Left here](https://rust-book.cs.brown.edu/ch02-00-guessing-game-tutorial.html#:~:text=Rust%20Programming%20Language-,Programming%20a%20Guessing%20Game,-Let%E2%80%99s%20jump%20intohttps://rust-book.cs.brown.edu/ch01-03-hello-cargo.html#:~:text=Building%20and%20Running%20a%20Cargo%20Project)
