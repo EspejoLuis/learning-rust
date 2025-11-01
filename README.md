@@ -1,6 +1,6 @@
 # learning-rust
 
-Playground for learning rust 🦀
+Documenting my journey in learning rust 🦀
 
 Four main points (from [Coding Jesus](https://www.youtube.com/watch?v=KzBg5siW_Vw&t=542s)):
 
