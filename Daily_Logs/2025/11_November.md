@@ -22,7 +22,7 @@
   - `Ok` -> operation succeeds and result contains the result of the operation.
   - `Err` -> operation fails and it contains all info about the failure.
 
-- `crate` is a collection of Rust source code files.
+- `crate` *is a collection of Rust source code files.*
 
 - Process when we add a dependency in `[dependencies]`:
   - 0️⃣ Terminal: `cargo build` (or any `cargo` command).
@@ -66,6 +66,44 @@
   ```rust
    Compiling guessing_game v0.1.0 (/Users/apple/github_repos/learning-rust/projects/guessing_game)
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.92s
+  ```
+
+## ☀️ 8th November - Saturday
+
+- `cargo update` will update dependencies, up to next version. For example, if the version in the `Cargo.toml` is 0.8.5 then using `cargo update` will update all the version (if any) till but not including 0.9.
+
+- When you declare variables at the beginning of the code, they could be modules, traits, struct etc. For example:
+
+  ```rust
+  use rand::Rng;
+  use std::io;
+  use std::cmp::Ordering;
+  ```
+
+  If it's in PascalCase then it could be a `trait`, `struct` or `Enum`. Lowercase is a `module`. `Rng` is a trait.
+
+  Ordering is a enum whose variants are:
+  - `Greater`
+  - `Less`
+  - `Equal`
+
+- Rust defaults to `i32`  
+
+- Very important command is `cargo doc --open` which builds the documentation of all the dependencies locally and open it in the browser. Cool!
+
+- Rust allows users to do *shadowing*. Shadowing means that a variable name can be reused instead of creating a new name.
+
+- Moving from an `expect` to a `match` makes possible to move from crashing to handling error. Examples below:
+  
+  ```rust
+  let guess: u32 = guess.trim().parse().expect("Please type a number!");
+  ```
+
+  ```rust
+  let guess: u32 = match guess.trim().parse() {
+          Ok(num) => num,
+          Err(_) => continue,
+      };
   ```
 
 ## Start From
