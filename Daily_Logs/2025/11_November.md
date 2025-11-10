@@ -217,10 +217,72 @@
 
 - Done `01_Variables` exercises from 1 to 6.
 
+## ☀️ 10th November - Monday
 
-## Start From
+- 🎥 [Visualizing memory layout of Rust's data types](https://www.youtube.com/watch?v=7_o-YRxf_cc&t=1661s): Long video but interesting. It explain the allocation of each variable type. To watch again!
 
-[Left here](https://rust-book.cs.brown.edu/ch03-00-common-programming-concepts.html)
+### Chapter 3 - Commong Programming Concepts - Data Types
+
+- Data types can be:
+  - **Scalar**
+    - Integer: signed(i)/unsigned(u).
+
+      | Length                | Signed | Unsigned |
+      |-----------------------|---------|-----------|
+      | 8-bit                 | i8      | u8        |
+      | 16-bit                | i16     | u16       |
+      | 32-bit                | i32     | u32       |
+      | 64-bit                | i64     | u64       |
+      | 128-bit               | i128    | u128      |
+      | Architecture dependent | isize   | usize     |
+
+      - Signed -> from $0$ to $2^{n − 1} − 1$
+      - Unsigned -> from $−2^{n − 1}$ to $2^{n − 1} − 1$
+      - isize/usize can be used when indexing some sort of collection.
+      - Default is i32.
+
+        ```rust
+        fn main() {
+            let x = 2; // default i32
+        }
+        ```
+
+      - *integer overflow*: for example, when using an u8 variable and and assigment of 256 is done. Maximum being 255 (from 0 to 255). What happens ?
+        - Debug --> Programm will panic!
+        - Release --> No panic but Rust will perform wrapping i.e. it will start from scratch. Basically, 256 will be 0, 257 will be 1 etc.
+
+    - Floating-point:
+      - Floating points are signed by default. 
+      - They can be f32 or f64. 
+      - f64 is the default.
+
+      ```rust
+      fn main() {
+          let x = 2.0; // default f64
+      }
+      ```
+
+    - Booleans:
+
+    ```rust
+        fn main() {
+        let t = true;
+        let f: bool = false; // with explicit type annotation
+    }
+    ```
+
+    - Characters. `char` literals (with single quote) are different from string literal (with double quotes). Rust's `char` is four bytes and represents a *unicode* so more than just *ASCII*. It can be also emojis!
+
+    ```rust
+    fn main() {
+    let c = 'z';
+    let z: char = 'ℤ'; // with explicit type annotation
+    let heart_eyed_cat = '😻';
+    }
+    ```
+
+  - **Compound**
+
 
 ## 📚 To Do
 
@@ -238,3 +300,7 @@
   - [ ] Manual memory management vs garbage collector
   - [ ] Concurrency, parallelism and multithreading
   - [X] Compiled vs interpreted languages
+
+## 🎥 Videos
+
+- 🎥 [Visualizing memory layout of Rust's data types](https://www.youtube.com/watch?v=7_o-YRxf_cc&t=1661s). Long video but interesting. It explain the allocation of each variable type. To watch again!
