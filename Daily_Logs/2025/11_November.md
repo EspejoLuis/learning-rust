@@ -225,7 +225,7 @@
 
 - Data types can be:
   - **Scalar**
-    - Integer: signed(i)/unsigned(u).
+    - **Integer**: signed(i)/unsigned(u).
 
       | Length                | Signed | Unsigned |
       |-----------------------|---------|-----------|
@@ -251,7 +251,7 @@
         - Debug --> Programm will panic!
         - Release --> No panic but Rust will perform wrapping i.e. it will start from scratch. Basically, 256 will be 0, 257 will be 1 etc.
 
-    - Floating-point:
+    - **Floating-point**:
       - Floating points are signed by default. 
       - They can be f32 or f64. 
       - f64 is the default.
@@ -262,7 +262,7 @@
       }
       ```
 
-    - Booleans:
+    - **Booleans**:
 
     ```rust
         fn main() {
@@ -271,7 +271,7 @@
     }
     ```
 
-    - Characters. `char` literals (with single quote) are different from string literal (with double quotes). Rust's `char` is four bytes and represents a *unicode* so more than just *ASCII*. It can be also emojis!
+    - **Characters**: `char` literals (with single quote) are different from string literal (with double quotes). Rust's `char` is four bytes and represents a *unicode* so more than just *ASCII*. It can be also emojis!
 
     ```rust
     fn main() {
@@ -281,8 +281,89 @@
     }
     ```
 
-  - **Compound**
+## ☀️ 11th November - Tuesday
 
+### Chapter 3 - Commong Programming Concepts - Data Types - Part II
+
+- **Compound**
+  - There are two primitive compound types:
+    - **Tuple**: fixed collection of possible different type variables.
+
+    ```rust
+    fn main() {
+    let tup = (500, 6.4, 1);
+    // Alternatively let tup: (i32, f64, u8) = (500, 6.4, 1);
+
+    let (x, y, z) = tup; // --> Destructuring !
+
+    println!("The value of y is: {y}");
+    }
+    ```
+
+    Tuples can be accessed:
+
+    ```rust
+    fn main() {
+    let x: (i32, f64, u8) = (1, 2.4, 4);
+
+    let five_hundred = x.0
+    let six_point_four = x.1;
+    let one = x.2;
+    }
+    ```
+
+    Tuples without any value are called **unit**:
+    - Its *value* and *type* are both `()`.
+    - Expression that do not return anything, implicitly return the unit value.
+    - `()` is an actual type. In C++ `void` is not a real type, it cannot be assigned/stored.
+
+    ```rust
+    let a: () = (); // It works!
+    ```
+
+    - Tuples are *not immutable* like in python!
+
+    ```rust
+    fn main() {
+    let mut x: (i32, i32) = (1, 2);
+      x.0 = 0;
+      x.1 += 5;
+    }
+    ```
+
+    - Stored in the stack.
+    - Not an iterable.
+
+    - **Array**: fixed collection of same type variables.
+
+    ```rust
+    let a: [i32; 5] = [1, 2, 3, 4, 5];
+    ```
+
+    - When arrays can be used ?
+      - To allocate data on the stack.
+      - To ensure there are only a fixed number of elements.
+      - To iterate.
+
+    - vs Vector: vectors are allowed to grow. Vectors live in the heap. More in later chapters.
+    - You can declare same value automatically. Below you have an array of five elements. All are thress.
+
+    ```rust
+    let a = [3; 5]; // [3,3,3,3,3]
+    ```
+
+    - How to access them ?
+
+    ```rust
+    fn main() {
+    let a = [1, 2, 3, 4, 5];
+
+    let first = a[0];
+    let second = a[1];
+    }
+    ```
+
+    C++ does not perform runtime bounds checking on arrays or most containers. On the other hand, Rust performs runtime bounds checking on ararys avoid invalid memory to be accessed. Basically, Rust immediately exits (and panics).
 
 ## 📚 To Do
 
