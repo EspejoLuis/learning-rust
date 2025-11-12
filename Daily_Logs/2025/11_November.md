@@ -364,6 +364,54 @@
 
     C++ does not perform runtime bounds checking on arrays or most containers. On the other hand, Rust performs runtime bounds checking on arrays. This avoids invalid memory to be accessed. Basically, Rust immediately exits (and panics).
 
+## ☀️ 12th November - Wednesday
+
+### Chapter 3 - Commong Programming Concepts - Functions
+
+- **Parameters**:
+  - Parameters vs Arguments:
+
+    - Variables in a function definition are called *parameters*. These are special values defind in function's signature.
+
+    - Actual values are defined as *arguments*.
+
+  - If there are parameters in the definition of a function, those parameters must have a `types`. It's better for the compiler!.
+
+- **Statement and Expression**:
+  - What are functions ? Just a series of different statements with an optional expression at the end.
+
+  - What's the difference ?
+    - *Statements*: instructions that perform some action but do not return anything.
+    - *Expression*: evaluate to a resultant value.
+
+  - Function definition is a statment, `let y = 6` is a stement as well.
+
+  ```rust
+  fn main() {
+    let y = 6;
+  }
+  ```
+
+  - Because `let y = 6` is a statement, it cannot be assigned to another `let`. In C++ you can do `x=y=6`.
+
+  - Calling a function is an expression.
+  - A new scope in curly brackets `{}` is an expression.
+
+  ```rust
+  fn main() {
+    let y = {.    // Expression
+        let x = 3;// Expression
+        x + 1     // Expression no ; !
+    };
+    println!("The value of y is: {y}");
+  }
+  ```
+
+  - `6` is `let y = 6` is an expression.
+  - Expression do not include `;`. If a semicolon `;` is added then the expression becomes a statement. And do not return anything!.
+
+- **Functions with Return Values**
+
 ## 📚 To Do
 
 - [X] Read book - Fast.
