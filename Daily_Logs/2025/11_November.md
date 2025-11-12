@@ -252,8 +252,8 @@
         - Release --> No panic but Rust will perform wrapping i.e. it will start from scratch. Basically, 256 will be 0, 257 will be 1 etc.
 
     - **Floating-point**:
-      - Floating points are signed by default. 
-      - They can be f32 or f64. 
+      - Floating points are signed by default.
+      - They can be f32 or f64.
       - f64 is the default.
 
       ```rust
@@ -285,9 +285,8 @@
 
 ### Chapter 3 - Commong Programming Concepts - Data Types - Part II
 
-- **Compound**
-  - There are two primitive compound types:
-    - **Tuple**: fixed collection of possible different type variables.
+- **Compound**: There are two primitive compound types:
+  - **Tuple**: fixed collection of possible different type variables.
 
     ```rust
     fn main() {
@@ -312,29 +311,29 @@
     }
     ```
 
-    Tuples without any value are called **unit**:
-    - Its *value* and *type* are both `()`.
-    - Expression that do not return anything, implicitly return the unit value.
-    - `()` is an actual type. In C++ `void` is not a real type, it cannot be assigned/stored.
+    - Tuples without any value are called **unit**:
+            - Its *value* and *type* are both `()`.
+            - Expression that do not return anything, implicitly return the unit value.
+            - `()` is an actual type. In C++ `void` is not a real type, it cannot be assigned/stored.
 
-    ```rust
-    let a: () = (); // It works!
-    ```
+        ```rust
+        let a: () = (); // It works!
+        ```
 
     - Tuples are *not immutable* like in python!
 
-    ```rust
-    fn main() {
-    let mut x: (i32, i32) = (1, 2);
-      x.0 = 0;
-      x.1 += 5;
-    }
-    ```
+      ```rust
+      fn main() {
+      let mut x: (i32, i32) = (1, 2);
+        x.0 = 0;
+        x.1 += 5;
+      }
+      ```
 
     - Stored in the stack.
     - Not an iterable.
 
-    - **Array**: fixed collection of same type variables.
+  - **Array**: fixed collection of same type variables.
 
     ```rust
     let a: [i32; 5] = [1, 2, 3, 4, 5];
@@ -363,7 +362,7 @@
     }
     ```
 
-    C++ does not perform runtime bounds checking on arrays or most containers. On the other hand, Rust performs runtime bounds checking on ararys avoid invalid memory to be accessed. Basically, Rust immediately exits (and panics).
+    C++ does not perform runtime bounds checking on arrays or most containers. On the other hand, Rust performs runtime bounds checking on arrays. This avoids invalid memory to be accessed. Basically, Rust immediately exits (and panics).
 
 ## 📚 To Do
 
