@@ -236,7 +236,7 @@
       | 128-bit               | i128    | u128      |
       | Architecture dependent | isize   | usize     |
 
-      - Signed -> from $0$ to $2^{n − 1} − 1$
+      - Signed -> from $0$ to $2^{n} − 1$
       - Unsigned -> from $−2^{n − 1}$ to $2^{n − 1} − 1$
       - isize/usize can be used when indexing some sort of collection.
       - Default is i32.
