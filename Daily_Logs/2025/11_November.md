@@ -393,6 +393,7 @@
   ```
 
   - Because `let y = 6` is a statement, it cannot be assigned to another `let`. In C++ you can do `x=y=6`.
+  - `6` is `let y = 6;` is an expression.
 
   - Calling a function is an expression.
   - A new scope in curly brackets `{}` is an expression.
@@ -407,10 +408,164 @@
   }
   ```
 
-  - `6` is `let y = 6` is an expression.
   - Expression do not include `;`. If a semicolon `;` is added then the expression becomes a statement. And do not return anything!.
 
+## ☀️ 14th November - Wednesday
+
+### Chapter 3 - Commong Programming Concepts - Functions - Part II
+
 - **Functions with Return Values**
+
+  - No name for return values but only type in functions (`->`).
+  - Most functions return the last expression implicilty. If there is no expression then the function returns the unit type `()`. In the code below the function `plus_one()` has a return type of `i32` but no expression in the its scope so the return value and type is `()` which of course cause Rust to panic.
+
+    ```rust
+    fn main() {
+      let x = plus_one(5);
+      println!("The value of x is: {x}");
+    }
+
+    fn plus_one(x: i32) -> i32 {
+        x + 1;
+    }
+    ```
+
+- **Comments**
+
+  - Simply use `//` and `/* */`
+
+- **Control Flow**
+
+  - **If**
+    - In C++, `if` conditions are by default checked against zero. In Rust, this is not true. `if` expects an explicity boolean condition.
+
+    - `if` in a `let` statement: `if` is an *expression* so we can use in the rigth side of an a `let` statement.
+
+      ```rust
+      fn main() {
+        let condition = true;
+        let number = if condition { 5 } else { 6 };
+
+        println!("The value of number is: {number}");
+      } 
+      ```
+
+    - Branches of `if` conditions must be of same type!
+    - Blocks of code evaluates to the last expression in them, and numbers alone are still expression.
+    - The following code will give an error. Rust needs to know `number` type at compile time. Uniquely.
+
+      ```rust
+      fn main() {
+        let condition = true;
+
+        let number = if condition { 5 } else { "six" };
+
+        println!("The value of number is: {number}");
+      }
+      ```
+
+  - **Loop**
+    - `loop`: you can `break` it and if you want a result put it after the `break`.
+
+        ```rust
+        fn main() {
+        let mut counter = 0;
+
+        let result = loop {
+            counter += 1;
+
+            if counter == 10 {
+                break counter * 2;
+            }
+        };
+
+        println!("The result is {result}");
+        }
+        ```
+
+      - `break` exits loop, `return` exits function.
+      - The semicolon `;` after `break counter * 2` is optional. 
+      - Code after (as in the next lines after) `break` or `return` is never executed. `break;` and `return;` are expression and treated as having value unit `()`.
+
+      - Label in multiple `loops`.
+
+        ```rust
+        fn main() {
+        let mut count = 0;
+        'counting_up: loop {
+            println!("count = {count}");
+            let mut remaining = 10;
+
+            loop {
+                println!("remaining = {remaining}");
+                if remaining == 9 {
+                    break; // This break the inner loop only
+                }
+                if count == 2 {
+                    break 'counting_up; //This break the outer loop
+                }
+                remaining -= 1;
+            }
+
+            count += 1;
+        }
+        println!("End count = {count}");
+        }
+        ```
+
+    - Conditional loops: `while`.
+
+      ```rust
+      fn main() {
+      let mut number = 3;
+
+      while number != 0 {
+          println!("{number}!");
+
+          number -= 1;
+      }
+
+      println!("LIFTOFF!!!");
+      }
+      ```
+
+      While loop could be also used to loop through an array. However, it is not really that safe. Code could panic if the index is wrong for example if the array size changes to be four.
+
+      ```rust
+      fn main() {
+      let a = [10, 20, 30, 40, 50];
+      let mut index = 0;
+
+      while index < 5 {
+          println!("the value is: {}", a[index]);
+          index += 1;
+      }
+
+      }
+      ```
+
+    - `for` loop: insted of previous loop, better to use `for` loop.
+
+      ```rust
+      fn main() {
+      let a = [10, 20, 30, 40, 50];
+
+      for element in a {
+        println!("the value is: {element}");
+        }
+      }
+      ```
+
+      Even for cases where there is a condition, most people will use `for` rather than `while`:
+
+      ```rust
+      fn main() {
+       for number in (1..4).rev() {
+        println!("{number}!");
+        }
+        println!("LIFTOFF!!!");
+      }
+      ```
 
 ## 📚 To Do
 
