@@ -567,6 +567,14 @@
       }
       ```
 
+## ☀️ 16th November - Sunday
+
+About ownerships/borrowing:
+
+- 🎥 Video: [Learning Rust: Memory, Ownership and Borrowing](https://www.youtube.com/watch?v=8M0QfLUDaaA&t=12s)
+
+- 🎥 Video: [04 Ownership & Borrowing | Rust Tutorials](https://www.youtube.com/watch?v=q2UnbA2dkc8)
+
 ## 📚 To Do
 
 - [X] Read book - Fast.
