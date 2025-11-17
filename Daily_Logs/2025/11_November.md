@@ -484,7 +484,7 @@
         ```
 
       - `break` exits loop, `return` exits function.
-      - The semicolon `;` after `break counter * 2` is optional. 
+      - The semicolon `;` after `break counter * 2` is optional.
       - Code after (as in the next lines after) `break` or `return` is never executed. `break;` and `return;` are expression and treated as having value unit `()`.
 
       - Label in multiple `loops`.
@@ -574,6 +574,56 @@ About ownerships/borrowing:
 - 🎥 Video: [Learning Rust: Memory, Ownership and Borrowing](https://www.youtube.com/watch?v=8M0QfLUDaaA&t=12s)
 
 - 🎥 Video: [04 Ownership & Borrowing | Rust Tutorials](https://www.youtube.com/watch?v=q2UnbA2dkc8)
+
+## ☀️ 17th November - Monday
+
+### Chapter 4 - Understanding Ownetship - What is ownership ?
+
+- What are Rust's goals:
+  1. Ensuring that the program does not have any undefined behaviour. i.e. ensuring safety! This can be particularly important when it comes to low level programming languages that have direct access to memory.
+  2. Prevent undefined behavoiour at compile-time instead of run-time.
+
+- With this goals in mind, `ownership` is a discipline for safely using memory!
+
+- *Variable live in the stack*
+
+  - Variables live in frames. What is a frame ? it is a mapping from variables to values within a single scope, such as a function.
+
+  ![alt text](<Screenshot 2025-11-17 at 20.15.11.png>)
+
+  - In this picture there are many frames:
+    - Frame for `main`, at L1/L2/L3.
+    - Frame for `plus_one` at L2.
+
+  - All frames are then grouped into a stack. They are deallocating follownig LIFO pattern.
+  - When a functions returns, the function's frame is deallocated.
+  - Deallocation/Freeing/Dropping are synonimous in the book.
+
+  - When variables defined enitrely in the stack are assigned, variables's value is copied by default in the stack. Example below:
+
+  ![alt text](<Screenshot 2025-11-17 at 20.24.58.png>)
+
+  - New variable `b` can be modified without altering the original variable `a` because they are copies.
+
+  - Variables can also be defined in the heap ("free store") where data can live indefintely. In the heap, variables do not follow any stack frame rule.
+  
+  - `Box` can be used to define variables in the heap. Allocating memory in the heap is a way to make a pointer.
+
+  - A pointer contains the address of a variable, basically it describes the location in the memory. This memory can be heap memory.
+
+  ![alt text](<Screenshot 2025-11-17 at 20.31.47.png>)
+
+  - When assigning `let b = a`, pointer from `a` is copied to `b`. Only the pointer is copied, not the pointed-at value.
+
+  - `a` is greyed out because it has been moved.
+
+  - Only one variable can own the pointer at any time.
+
+  - In the picture, the pointer is in the stack. Pointer to the heap. However, we can also have pointers in the heap to the stack.
+
+  - Frames in the stack are linked to specific funtioncs and deallocated as soon as the function returns. In the heap, data can leave indefinitely --> Both in the stack and in the heap, data can be copyable and mutable.
+
+  - Video 🎥 [Rust String vs str slices](https://www.youtube.com/watch?v=ClPrjjHmo2Y)
 
 ## 📚 To Do
 
