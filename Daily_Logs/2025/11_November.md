@@ -577,7 +577,7 @@ About ownerships/borrowing:
 
 ## ☀️ 17th November - Monday
 
-### Chapter 4 - Understanding Ownetship - What is ownership ?
+### Chapter 4 - Understanding Ownership - What is Ownership ?
 
 - What are Rust's goals:
   1. Ensuring that the program does not have any undefined behaviour. i.e. ensuring safety! This can be particularly important when it comes to low level programming languages that have direct access to memory.
@@ -623,7 +623,52 @@ About ownerships/borrowing:
 
   - Frames in the stack are linked to specific funtioncs and deallocated as soon as the function returns. In the heap, data can leave indefinitely --> Both in the stack and in the heap, data can be copyable and mutable.
 
-  - Video 🎥 [Rust String vs str slices](https://www.youtube.com/watch?v=ClPrjjHmo2Y)
+- Video 🎥 [Rust String vs str slices](https://www.youtube.com/watch?v=ClPrjjHmo2Y)
+
+## ☀️ 18th November - Tuesday
+
+### Chapter 4 - Understanding Ownership - What is Ownership ? - Part II
+
+- Rust doesn't allow manual memory management i.e. finding unused memory and returning it when it's not used anymore.
+  - **Stack**: stack frames are automatically managed by Rust so when a function is called, Rust allocates a frame for the called function. At the end of the call, Rust will deallocate the frame.
+  - **Heap**: Rust automatically deallocates heap memory to avoid undefined behaviour, like trying to use a pointer after is pointee has been freed.
+  
+    ![alt text](<Screenshot 2025-11-18 at 21.26.32.png>)
+
+- *Heap* part II:
+  
+  ```rust
+  let a = Box::new([0; 1_000_000]);
+  let b = a;
+  ```
+
+  - `Box` has been bound to `a`.
+  - `a` owns the box.
+  - `let b = a` moves ownership from `a` to `b`.
+  - pointer to the heap in `a` is copied to `b`.
+  - Rust deallocates heap memory on behalf of `a` not on behalf of `b`.
+  - *Box Deallocation Principle*: if a variable owns a box, when the variable's frames is deallocated, also the heap memory is deallocated. This is true for `Box` or box like variables (variable that allocate memory on the heap like `Vec`)
+  
+  - *Moving Heap Data*: if a variable `a` moves ownership of heap data to another variable `b`, then `a` cannot be used anymore.
+    - How to avoid moving data ? You can clone it!
+
+  - Example for `String` which behaves like a `Box`: 
+    - At L2 ownership is transferred from `first` to `name` so the pointer is copied. However at L2 memory is still not dealloacted.
+    - Original heap memory is dealloacated at L3 (no arrow anymore) due to `name.push_str()`. `name.push_str()` :
+          1. Creates new memory
+          2. Resize it adding ` Jr.`
+          3. Deallocate original heap memory.
+
+        ![alt text](<Screenshot 2025-11-18 at 22.01.31.png>)
+
+- Overview:
+  - Ownership is a **heap** thing
+    1. Heap data can be owned only by one variable.
+    2. Heap will be deallocated when owner is out of scope.
+    3. Ownership can be transferred by assignment or function calls (i.e. "move").
+    4. Heap data can be accesed only by its owner.
+
+  - Ownership exists for all values, stack or heap. But for **stack** values (Copy types), assignments create copies, not moves! So the ownership model is not a restriction when working with stack data. So all the points above are not really valid for stack data.
 
 ## 📚 To Do
 
