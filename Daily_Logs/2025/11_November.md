@@ -669,24 +669,3 @@ About ownerships/borrowing:
     4. Heap data can be accesed only by its owner.
 
   - Ownership exists for all values, stack or heap. But for **stack** values (Copy types), assignments create copies, not moves! So the ownership model is not a restriction when working with stack data. So all the points above are not really valid for stack data.
-
-## 📚 To Do
-
-- [X] Read book - Fast.
-- [ ] Read Book Second Time.
-- [ ] Check Videos!
-- [ ] Rustling.
-- [ ] Rust by example.
-- [ ] Acquascope for ownership concept/stack/heap.
-- [ ] Check Comprehensive Rust
-- [ ] Refresh topics:
-
-  - [ ] Heap, stack and dynamic memory
-  - [ ] Memory allocation and deallocation
-  - [ ] Manual memory management vs garbage collector
-  - [ ] Concurrency, parallelism and multithreading
-  - [X] Compiled vs interpreted languages
-
-## 🎥 Videos
-
-- 🎥 [Visualizing memory layout of Rust's data types](https://www.youtube.com/watch?v=7_o-YRxf_cc&t=1661s). Long video but interesting. It explain the allocation of each variable type. To watch again!
