@@ -65,7 +65,22 @@ Pointer Safety Principle: data should never be aliased and mutated at the same t
   - **Not Owned Pointers** (i.e. references):
     - Need different rules! By design, references are meant to create aliases (temporarily) --> Solution ? Borrow Checker.
 
+### ☀️ 4th December - Monday
+
 ### References changes permission on places
+
+- Variables can have only 3 permissions to access their data:
+
+  - Read: can copy.
+  - Write: can mutate.
+  - Own: can move or drop.
+
+- When are these permission valid ? Only at compile time not runtime.
+- Default status for variables is that they can always read and move/drop. If there is `mut` they can also write.  
+- References are able to remove permissions!
+
+Example below
+![alt text](<Screenshot 2025-12-08 at 07.54.01.png>)
 
 ## 📚 To Do
 
