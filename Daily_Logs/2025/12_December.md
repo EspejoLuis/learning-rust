@@ -82,6 +82,35 @@ Pointer Safety Principle: data should never be aliased and mutated at the same t
 Example below
 ![alt text](<Screenshot 2025-12-08 at 07.54.01.png>)
 
+### ☀️ 23rd December - Tuesday
+
+### References changes permission on places - Part II
+
+- One interesting point above was that not only `num` appears but also `*num`. Why ? Simply because accessing a reference (`num`) is different from manipulating the reference itself (`*num`). In the below, `x_ref` and `*x_ref` are different in terms of permissions:
+  - `x_ref`: has writing permission because it is mutable, and theoretically it could be re-assigned (x_ref = &y).
+  - `*x_ref`: has only reading permission regardless
+
+    ![alt text](<Screenshot 2025-12-23 at 18.16.01.png>)
+
+- What is a `place` ? A place is anything can be put on the left side of an assignment. Why are they important ? Because permission are defined not just on variable but on places.
+
+- What places can be ?:
+  - Simple variables (`a`)
+  - Deferences (`*a`)
+  - Array access (`a[0]`)
+  - Fields of places like for tuples (`a.0`) or struct (`a.field`).
+  - Any combinations.
+
+- Another interesting point is why `places` lose permission when they are unused ? Some permission are mutually exclusive.
+  - Once `num` is defined, `v` cannot be mutated or dropped.
+  - `num` can anyway be used again and again.
+  - `num` will simply loses its permission when it's not used anymore.
+  
+    ![alt text](<Screenshot 2025-12-23 at 18.47.53.png>)
+
+- Anki cards done as well.
+
+
 ## 📚 To Do
 
 - [X] Read book - Fast.
